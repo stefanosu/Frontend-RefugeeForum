@@ -1,14 +1,13 @@
-import './App.css'
 import HomePage from './container/HomePage.js';
 import React from 'react'; 
 import { connect } from 'react-redux'
 import {getCurrentUser} from './actions/CurrentUser.js'
 import LogIn from './presentational/LogIn'; 
 import { Route } from 'react-router-dom'
-import SubChannel from './container/SubChannel';
+import Channel from './container/Channel';
 import SignUp from './container/SignUp'
 import Logout from './presentational/LogOut'
-import NewSubChannelForm from './container/NewSubChannelForm';
+import NewChannelForm from './container/NewChannelForm';
 
 
 class App extends React.Component {
@@ -20,16 +19,16 @@ class App extends React.Component {
     }
     
   
-    render() { 
-      const {loggedIn} = this.props
-      return ( 
+  render() { 
+    const {loggedIn} = this.props
+    return ( 
       <React.Fragment>
         {loggedIn ? <Logout/> : null}
         <Route exact path='/login' component={LogIn}/>
-        <Route exact path='/' render={()=> loggedIn ? <SubChannel/> : <HomePage/>}/>
+        <Route exact path='/' render={()=> loggedIn ? <Channel/> : <HomePage/>}/>
         <Route exact path='/signup' component={SignUp}/>
-        <Route exact path='/subchannel' component={SubChannel}/>
-        <Route exact path='/new/subChannelForm' component={NewSubChannelForm}/>
+        <Route exact path='/channel' component={Channel}/>
+        <Route exact path='/new/ChannelForm' component={NewChannelForm}/>
       </React.Fragment> 
         );
     }
