@@ -3,7 +3,7 @@ import HomePage from './container/HomePage.js';
 import React from 'react'; 
 import { connect } from 'react-redux'
 import {getCurrentUser} from './actions/currentUser.js'
-import LogIn from '../presentational/LogIn'; 
+import LogIn from './presentational/LogIn'; 
 import { Route } from 'react-router-dom'
 import Channel from './presentational/Channel';
 import SignUp from './presentational/SignUp'
