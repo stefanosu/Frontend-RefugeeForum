@@ -1,6 +1,6 @@
-import {resetLoginForm} from './LoginForm.js'
-import { getAllChannels } from './SubChannel.js'
-import {resetSignupForm} from './signupForm.js'
+import {resetLoginForm} from './loginForm.js'
+import { getAllChannels } from './channel.js'
+import {resetSignupForm} from './signUpForm.js'
 
 
 ///sync action creators
