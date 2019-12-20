@@ -9,7 +9,6 @@ import store from './Store.js'
 
 
 
-
 ReactDOM.render(<Provider store={store} > 
     <Router>
         <App /> 
