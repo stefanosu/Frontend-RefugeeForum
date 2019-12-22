@@ -6,16 +6,15 @@ import { connect } from 'react-redux'
 
 const Channel = ({currentUser}) => {
 // if(currentUser != null){
-//     console.log(currentUser.data.attributes.channels)
+//     // console.log(currentUser.data.attributes.channels)
         
-// // let ChannelCards = currentUser.data.attributes.channels.map(channel => <ChannelCards channel={channel} key={channel.id} />)
+// let ChannelCards = currentUser.data.attributes.channels.map(channel => <ChannelCards channel={channel} key={channel.id} />)
 // }
-// {ChannelCards}
 
-    return (
-        <div className="wrapper">
-            <h1>Channels</h1>
-        </div>
+return (
+  <div className="wrapper">
+    <h1>Channels</h1>
+  </div>
     ) 
 }
 

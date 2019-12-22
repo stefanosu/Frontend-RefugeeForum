@@ -25,11 +25,10 @@ export const login = (credentials, history) => {
         // debugger
         // const token = localStorage.token 
         return fetch("http://localhost:3000/api/v1/login", {
-        credentials: "include",
+        // credentials: "include",
         method: 'POST', 
         headers: {
             'Content-Type': 'application/json',
-            'Accept': 'application/json'
             // Authorization: `Bearer${token}`
             }, 
             body: JSON.stringify(credentials)
@@ -40,8 +39,8 @@ export const login = (credentials, history) => {
                 alert(user.error)
             } else {
                 // console.log(user.data)
-                localStorage.setItem("token", user.jwt)
                 dispatch(setCurrentUser(user))
+                localStorage.setItem("token", user.token)
                 dispatch(resetSignupForm())
                 dispatch(getAllChannels(user.data))
                 history.push('/')
@@ -58,7 +57,7 @@ export const signup = (credentials, history) => {
         // debugger
         // const token = localStorage.token 
         return fetch("http://localhost:3000/api/v1/signup", {
-        credentials: "include",
+        // credentials: "include",
         method: 'POST', 
         headers: {
             'Content-Type': 'application/json',
@@ -89,24 +88,26 @@ export const logout = () => {
     return dispatch => { 
         dispatch(clearCurrentUser())
         fetch("http://localhost:3000/api/v1/logout", {
-            credentials: 'include',
-            method: 'DELETE'
-        }) 
+          credentials: 'include',
+          method: 'DELETE'
+        })
+        .then(resp => resp.json())
+        dispatch(clearCurrentUser())
+        localStorage.clear()
     }
 }
 
-
 export const getCurrentUser = () => {
+    // let token = localStorage.token
     console.log('DISPATCHING GET CURRENT USER');
     return dispatch => {
         // debugger 
-        const token = localStorage.token
-        return fetch("http://localhost:3000/api/v1/persist", {
-        credentials: "include",    
+        return fetch("http://localhost:3000/api/v1/auth", {
+        // credentials: "include",    
         method: 'GET', 
         headers: {
             'Content-Type': 'application/json', 
-            Authorization: `Bearer${token}`
+            Authorization: `Bearer` + localStorage.token 
             },
         })
         .then(resp => resp.json())
@@ -116,7 +117,7 @@ export const getCurrentUser = () => {
             if(user.error) {
                 alert(user.error)
             } else {
-                localStorage.setItem("token", user.jwt)
+                // localStorage.setItem("token", user.token)
                 dispatch(setCurrentUser(user))
                 dispatch(getAllChannels(user.data))
             }

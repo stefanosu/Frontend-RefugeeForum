@@ -15,7 +15,7 @@ class App extends React.Component {
     
     componentDidMount() {
       // debugger
-      // this.props.getCurrentUser()
+      this.props.getCurrentUser()
       // this.props.getCurrentChannel() 
     }
     
