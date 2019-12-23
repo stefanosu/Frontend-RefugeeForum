@@ -15,15 +15,16 @@ class App extends React.Component {
     
     componentDidMount() {
       // debugger
-      this.props.getCurrentUser()
-      // this.props.getCurrentChannel() 
+      if (localStorage.token) {
+        this.props.getCurrentUser()
+      }
     }
     
   
     render() { 
       const {loggedIn} = this.props
       return ( 
-      <React.Fragment>
+        <React.Fragment>
         {loggedIn ? <Logout/> : null}
         <Route exact path='/login' component={LogIn}/>
         <Route exact path='/' render={()=> loggedIn ? <Channel/> : <HomePage/>}/>

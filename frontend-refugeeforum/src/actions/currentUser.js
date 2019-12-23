@@ -42,7 +42,7 @@ export const login = (credentials, history) => {
                 dispatch(setCurrentUser(user))
                 localStorage.setItem("token", user.token)
                 dispatch(resetSignupForm())
-                dispatch(getAllChannels(user.data))
+                // dispatch(getAllChannels(user.data))
                 history.push('/')
             }
         })
@@ -86,10 +86,11 @@ export const signup = (credentials, history) => {
 export const logout = () => {
     console.log('loggedOut!!!')
     return dispatch => { 
-        dispatch(clearCurrentUser())
+        // debugger
+        // dispatch(clearCurrentUser())
         fetch("http://localhost:3000/api/v1/logout", {
-          credentials: 'include',
-          method: 'DELETE'
+            // credentials: 'include',
+            method: 'DELETE'
         })
         .then(resp => resp.json())
         dispatch(clearCurrentUser())
@@ -102,12 +103,12 @@ export const getCurrentUser = () => {
     console.log('DISPATCHING GET CURRENT USER');
     return dispatch => {
         // debugger 
-        return fetch("http://localhost:3000/api/v1/auth", {
+        return fetch("http://localhost:3000/api/v1/persist", {
         // credentials: "include",    
         method: 'GET', 
         headers: {
             'Content-Type': 'application/json', 
-            Authorization: `Bearer` + localStorage.token 
+            Authorization: `Bearer ` + localStorage.token 
             },
         })
         .then(resp => resp.json())
@@ -117,9 +118,10 @@ export const getCurrentUser = () => {
             if(user.error) {
                 alert(user.error)
             } else {
+                console.log(user)
                 // localStorage.setItem("token", user.token)
                 dispatch(setCurrentUser(user))
-                dispatch(getAllChannels(user.data))
+                // dispatch(getAllChannels(user.data))
             }
         })
         .catch(console.log)
