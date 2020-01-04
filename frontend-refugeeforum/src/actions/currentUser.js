@@ -20,34 +20,33 @@ export const clearCurrentUser = () => {
 
 ///async action creators 
 export const login = (credentials, history) => {
-    console.log('credentials are here', credentials);
-    return dispatch => {
-        // debugger
+  console.log('credentials are here', credentials);
+  return dispatch => {
         // const token = localStorage.token 
-        return fetch("http://localhost:3000/api/v1/login", {
+    return fetch("http://localhost:3000/api/v1/login", {
         // credentials: "include",
-        method: 'POST', 
-        headers: {
-            'Content-Type': 'application/json',
-            // Authorization: `Bearer${token}`
-            }, 
-            body: JSON.stringify(credentials)
-        })
-        .then(resp => resp.json())
-        .then(user =>{
-            if(user.error) {
-                alert(user.error)
-            } else {
-                // console.log(user.data)
-                dispatch(setCurrentUser(user))
-                localStorage.setItem("token", user.token)
-                dispatch(resetSignupForm())
-                // dispatch(getAllChannels(user.data))
-                history.push('/')
-            }
-        })
-        .catch(console.log)
-    }
+      method: 'POST', 
+      headers: {
+          'Content-Type': 'application/json',
+          // Authorization: `Bearer${token}`
+        }, 
+          body: JSON.stringify(credentials)
+      })
+      .then(resp => resp.json())
+      .then(user =>{
+          if(user.error) {
+              alert(user.error)
+          } else {
+              // console.log(user.data)
+              dispatch(setCurrentUser(user))
+              localStorage.setItem("token", user.token)
+              dispatch(resetSignupForm())
+              // dispatch(getAllChannels(user.data))
+              history.push('/')
+          }
+      })
+      .catch(console.log)
+  }
 }
 
 //create new user
@@ -86,13 +85,6 @@ export const signup = (credentials, history) => {
 export const logout = () => {
     console.log('loggedOut!!!')
     return dispatch => { 
-        // debugger
-        // dispatch(clearCurrentUser())
-        fetch("http://localhost:3000/api/v1/logout", {
-            // credentials: 'include',
-            method: 'DELETE'
-        })
-        .then(resp => resp.json())
         dispatch(clearCurrentUser())
         localStorage.clear()
     }
@@ -112,7 +104,6 @@ export const getCurrentUser = () => {
             },
         })
         .then(resp => resp.json())
-        // .then(console.log => {
         .then(user =>{
             // debugger
             if(user.error) {

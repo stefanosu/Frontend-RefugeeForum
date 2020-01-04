@@ -6,6 +6,7 @@ import loginForm from './reducers/loginForm.js'
 import Channel from './reducers/channel.js' 
 import signupForm from './reducers/signUpForm.js'
 import newChannelForm from './reducers/newChannelForm.js'
+import isLoggedIn from './reducers/isLoggedIn.js'
 
 const reducer = combineReducers({
     users: usersReducer,
@@ -13,7 +14,8 @@ const reducer = combineReducers({
     loginForm, 
     Channel,
     signupForm, 
-    newChannelForm
+    newChannelForm,
+    isLoggedIn
 }) 
 
 

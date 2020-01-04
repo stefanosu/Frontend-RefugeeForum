@@ -3,17 +3,23 @@ import { connect } from 'react-redux'
 import {logout} from '../actions/currentUser.js'
 
 
-const LogOut = ({logout}) => {
+const LogOut = (props) => {
 
+const handleSubmit = (e) => {
+    e.preventDefault()
+    props.logout()
+}
 
 return ( 
-    <form onSubmit={logout}> 
+    <form onSubmit={handleSubmit}> 
         <input type='submit' value='Log Out'/>
         </form>
         );
     }
     
     
+const mapDispatchToProps = {
+        logout
+    }
 
-
-export default connect(null, {logout} ) (LogOut)
+export default connect(null, (mapDispatchToProps) ) (LogOut)

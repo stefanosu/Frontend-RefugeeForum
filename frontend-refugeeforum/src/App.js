@@ -13,37 +13,45 @@ import NewChannelForm from './presentational/NewChannelForm';
 
 class App extends React.Component {
     
-    componentDidMount() {
-      // debugger
-      if (localStorage.token) {
-        this.props.getCurrentUser()
-      }
+  // state = {
+  //   isLogged: false
+  // }
+
+  componentDidMount()  {
+    if (localStorage.token) {
+      this.props.getCurrentUser()
+      // this.props.checkUserLoggedIn()
+    }
+      // this.props.getCurrentUser() ? localStorage.token : null
+  }
+    
+
+  render() { 
+    const {loggedIn} = this.props
+    console.log(loggedIn);
+    
+    return ( 
+      <React.Fragment>
+      {localStorage.token ? <Logout/> : null}
+      <Route exact path='/login' component={LogIn}/>
+      <Route exact path='/' render={()=> loggedIn ? <Channel/> : <HomePage/>}/>
+      <Route exact path='/signup' component={SignUp}/>
+      <Route exact path='/channel' component={Channel}/>
+      <Route exact path='/new/ChannelForm' component={NewChannelForm}/>
+    </React.Fragment> 
+      );
+  }
+}
+
+  const mapDispatchToProps =  {
+        getCurrentUser
+      // checkUserLoggedIn()
     }
     
   
-    render() { 
-      const {loggedIn} = this.props
-      return ( 
-        <React.Fragment>
-        {loggedIn ? <Logout/> : null}
-        <Route exact path='/login' component={LogIn}/>
-        <Route exact path='/' render={()=> loggedIn ? <Channel/> : <HomePage/>}/>
-        <Route exact path='/signup' component={SignUp}/>
-        <Route exact path='/channel' component={Channel}/>
-        <Route exact path='/new/ChannelForm' component={NewChannelForm}/>
-      </React.Fragment> 
-        );
-    }
-  }
-  
-  
-  const mapDispatchToProps = {
-      getCurrentUser
-  }
-  
-  
   const mapStateToProps = state => ({
-      loggedIn: !!state.currentUser 
+      loggedIn: !state.currentUser 
+      // isLoggedIn: state.isLoggedIn
   })
   
   export default connect(mapStateToProps, mapDispatchToProps)(App);
