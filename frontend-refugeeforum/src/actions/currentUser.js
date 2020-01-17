@@ -5,16 +5,16 @@ import {resetSignupForm} from './signUpForm.js'
 
 ///sync action creators
 export const setCurrentUser = user => {
-    return {
-        type: 'SET_CURRENT_USER',
-        user
-    }
+  return {
+    type: 'SET_CURRENT_USER',
+    user
+  }
 } 
 
 export const clearCurrentUser = () => {
-    return {
-        type: 'CLEAR_CURRENT_USER'
-    }
+  return {
+    type: 'CLEAR_CURRENT_USER'
+  }
 }
 
 
@@ -24,7 +24,7 @@ export const login = (credentials, history) => {
   return dispatch => {
         // const token = localStorage.token 
     return fetch("http://localhost:3000/api/v1/login", {
-        // credentials: "include",
+        // credentials: "include", 
       method: 'POST', 
       headers: {
           'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ export const login = (credentials, history) => {
               dispatch(setCurrentUser(user))
               localStorage.setItem("token", user.token)
               dispatch(resetSignupForm())
-              // dispatch(getAllChannels(user.data))
+              dispatch(getAllChannels(user.data))
               history.push('/')
           }
       })
@@ -73,7 +73,7 @@ export const signup = (credentials, history) => {
                 localStorage.setItem('token', user.jwt)
                 dispatch(setCurrentUser(user))
                 dispatch(resetLoginForm())
-                dispatch(getAllChannels(user.data))
+                // dispatch(getAllChannels(user.data))
                 history.push('/') 
             }
         })
@@ -110,9 +110,9 @@ export const getCurrentUser = () => {
                 alert(user.error)
             } else {
                 console.log(user)
-                // localStorage.setItem("token", user.token)
+                localStorage.setItem("token", user.token)
                 dispatch(setCurrentUser(user))
-                // dispatch(getAllChannels(user.data))
+                dispatch(getAllChannels(user.data))
             }
         })
         .catch(console.log)

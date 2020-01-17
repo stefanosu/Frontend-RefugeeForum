@@ -4,16 +4,18 @@ import ChannelCards from './ChannelCards'
 // import '../App.css'
 
 
-const Channel = ({currentUser}) => {
-if(currentUser != null){
-  console.log(currentUser.data.attributes.channels)
-  var ChannelCard = currentUser.data.attributes.channels.map(channel => <ChannelCards channel={channel} key={channel.id} />)
-}
-
-return (
-  <div className="wrapper">
-    <h1>Channels</h1>
-    {ChannelCard}
+const Channel = ({user}) => {
+  if(user != null){
+    console.log(user.data.attributes.channels)
+    debugger
+    var ChannelCard = user.data.attributes.channels.map(channel => <ChannelCards channel={channel} key={channel.id} />)
+  }
+  
+  return (
+    <div className="wrapper">
+      <h1>Channels</h1>
+      <li> Hello</li>
+      {ChannelCard}
   </div>
     ) 
 }

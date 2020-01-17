@@ -54,6 +54,7 @@ class App extends React.Component {
       // isLoggedIn: state.isLoggedIn
   })
   
+  
   export default connect(mapStateToProps, mapDispatchToProps)(App);
 
 
