@@ -22,6 +22,7 @@ export const clearCurrentUser = () => {
 export const login = (credentials, history) => {
   console.log('credentials are here', credentials);
   return dispatch => {
+    // debugger
         // const token = localStorage.token 
     return fetch("http://localhost:3000/api/v1/login", {
         // credentials: "include", 
@@ -70,8 +71,8 @@ export const signup = (credentials, history) => {
                 alert(user.error)
             } else {
                 // console.log(user.data)
-                localStorage.setItem('token', user.jwt)
                 dispatch(setCurrentUser(user))
+                localStorage.setItem('token', user.jwt)
                 dispatch(resetLoginForm())
                 // dispatch(getAllChannels(user.data))
                 history.push('/') 
@@ -105,14 +106,13 @@ export const getCurrentUser = () => {
         })
         .then(resp => resp.json())
         .then(user =>{
-            // debugger
             if(user.error) {
                 alert(user.error)
             } else {
-                console.log(user)
-                localStorage.setItem("token", user.token)
-                dispatch(setCurrentUser(user))
-                dispatch(getAllChannels(user.data))
+              dispatch(setCurrentUser(user))
+              console.log(user)
+                // localStorage.setItem("token", user.token)
+                // dispatch(getAllChannels(user.data))
             }
         })
         .catch(console.log)

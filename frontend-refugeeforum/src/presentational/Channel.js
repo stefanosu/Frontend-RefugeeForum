@@ -1,21 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import ChannelCards from './ChannelCards'
-// import '../App.css'
 
 
-const Channel = ({user}) => {
-  if(user != null){
-    console.log(user.data.attributes.channels)
+
+const Channel = ({currentUser}) => {
+  if(currentUser != null){
     debugger
-    var ChannelCard = user.data.attributes.channels.map(channel => <ChannelCards channel={channel} key={channel.id} />)
-  }
-  
+  console.log(currentUser)
+  let channelData = currentUser.user.channels.map(channel => <ChannelCards channel={channel} key={channel.id} />)
+  } 
+
   return (
     <div className="wrapper">
       <h1>Channels</h1>
-      <li> Hello</li>
-      {ChannelCard}
+      <li>{}</li>
   </div>
     ) 
 }
