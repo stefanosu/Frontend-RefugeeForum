@@ -17,13 +17,14 @@ const LogIn = ({loginFormData, updateLogInForm, login, history}) => {
 
     const handleSubmit = event => {
         event.preventDefault()
+        // console.log(loginFormData, history)
         login(loginFormData, history)
     }
 
 return ( 
     <form onSubmit={handleSubmit}> 
     <input placeholder='username'  type='text' name='username' value={loginFormData.username} onChange={handleInputChange}/>
-        <input placeholder= 'password' type='text' name='password' value={loginFormData.password} onChange={handleInputChange}/>
+        <input placeholder= 'password' type='password' name='password' value={loginFormData.password} onChange={handleInputChange}/>
         <input type='submit' value='Log In'/>
         </form>
         );

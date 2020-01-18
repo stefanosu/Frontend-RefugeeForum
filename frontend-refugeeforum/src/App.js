@@ -38,9 +38,10 @@ class App extends React.Component {
       <Route exact path='/signup' component={SignUp}/>
       <Route exact path='/channel' component={Channel}/>
       <Route exact path='/new/ChannelForm' component={NewChannelForm}/>
-    </React.Fragment> 
+      </React.Fragment> 
       );
-  }
+      // <Route exact path='/' component={HomePage}/>
+    }
 }
 
   const mapDispatchToProps =  {
@@ -49,10 +50,11 @@ class App extends React.Component {
     }
     
   
-  const mapStateToProps = state => ({
-      loggedIn: !state.currentUser 
-      // isLoggedIn: state.isLoggedIn
-  })
+  const mapStateToProps = state => {
+    console.log(state)
+    return {loggedIn: !state.currentUser.currentUser}
+      
+    }
   
   
   export default connect(mapStateToProps, mapDispatchToProps)(App);

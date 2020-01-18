@@ -7,7 +7,7 @@ const ChannelCards = ({channel}) => {
     return(
         <div className='Channel-Card'>
             These are the Channels:
-            <strong>{channel.name}</strong>
+            <strong>{channel.title}</strong>
         </div>
     )
 }

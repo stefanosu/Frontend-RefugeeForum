@@ -5,18 +5,20 @@ import ChannelCards from './ChannelCards'
 
 
 const Channel = ({currentUser}) => {
+  let channelData 
   if(currentUser != null){
-    debugger
-  console.log(currentUser)
-  let channelData = currentUser.user.channels.map(channel => <ChannelCards channel={channel} key={channel.id} />)
-  } 
-
+    channelData =  currentUser.user.channels.map(channel => 
+      <ChannelCards channel={channel} key={channel.id}  />
+      )
+    // debugger
+  }
+  
   return (
     <div className="wrapper">
       <h1>Channels</h1>
-      <li>{}</li>
+      <li>{channelData}</li>
   </div>
-    ) 
+  )
 }
 
   const mapStateToProps = ({currentUser}) => {

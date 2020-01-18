@@ -20,30 +20,33 @@ export const clearCurrentUser = () => {
 
 ///async action creators 
 export const login = (credentials, history) => {
-  console.log('credentials are here', credentials);
-  return dispatch => {
-    // debugger
+    console.log('credentials are here', credentials);
+    return dispatch => {
+        // debugger
         // const token = localStorage.token 
-    return fetch("http://localhost:3000/api/v1/login", {
-        // credentials: "include", 
+        return fetch("http://localhost:3000/api/v1/login", {
+            // credentials: "include", 
       method: 'POST', 
       headers: {
           'Content-Type': 'application/json',
           // Authorization: `Bearer${token}`
         }, 
-          body: JSON.stringify(credentials)
-      })
-      .then(resp => resp.json())
-      .then(user =>{
-          if(user.error) {
-              alert(user.error)
-          } else {
-              // console.log(user.data)
-              dispatch(setCurrentUser(user))
-              localStorage.setItem("token", user.token)
-              dispatch(resetSignupForm())
-              dispatch(getAllChannels(user.data))
-              history.push('/')
+        body: JSON.stringify(credentials)
+    })
+    .then(resp => resp.json())
+    .then(user =>{
+        if(user.error) {
+            console.log(user.error, 'error')
+            alert(user.error)
+        } else {
+            console.log('success', user)
+            dispatch(setCurrentUser(user))
+            localStorage.setItem("token", user.token)
+            dispatch(resetSignupForm())
+            // dispatch(getAllChannels(user.data))
+            console.log('about history push');
+            history.push('/')
+            console.log('history updated');
           }
       })
       .catch(console.log)
