@@ -28,11 +28,16 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.channel-wrapper {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  background-color: #61dafb;
+  position: relative;
+  margin-right: 12px;
+  margin-left: 12px;
+}
+
+
+.Channel-Card {
+  padding: 4px;
 }

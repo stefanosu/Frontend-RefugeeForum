@@ -4,26 +4,27 @@ import ChannelCards from './ChannelCards'
 
 
 
-const Channel = ({currentUser}) => {
-  let channelData 
-  if(currentUser != null){
-    channelData =  currentUser.user.channels.map(channel => 
-      <ChannelCards channel={channel} key={channel.id}  />
+const Channel = ({sessions}) => {
+  let channelData; 
+  if(sessions.user){
+    channelData = sessions.user.channels.map(channel => 
+      <ChannelCards channel={channel} key={channel.id}/>
       )
-    // debugger
-  }
+    }
+    // console.log(session);
   
   return (
-    <div className="wrapper">
+    <div className="channel-wrapper">
       <h1>Channels</h1>
-      <li>{channelData}</li>
-  </div>
+
+      {channelData}
+  </div> 
   )
 }
 
-  const mapStateToProps = ({currentUser}) => {
+  const mapStateToProps = ({sessions}) => {
     return {
-      currentUser
+      sessions
     }
   }
 

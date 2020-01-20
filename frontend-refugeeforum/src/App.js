@@ -51,8 +51,8 @@ class App extends React.Component {
     
   
   const mapStateToProps = state => {
-    console.log(state)
-    return {loggedIn: !state.currentUser.currentUser}
+    console.log('mapping state to props ' , state)
+    return {loggedIn: !!state.sessions.user}
       
     }
   
