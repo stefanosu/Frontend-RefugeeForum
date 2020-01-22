@@ -8,7 +8,7 @@ export default (state = initialState, action ) => {
     case 'UPDATE_NEW_CHANNEL_FORM':
       return {
         ...state, 
-        [action.formData.name]: action.formData.value
+        [action.channelData.name]: action.channelData.value
         }
     case 'RESET_NEW_CHANNEL_FORM':
       return initialState

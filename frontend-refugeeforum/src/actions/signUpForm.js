@@ -1,4 +1,4 @@
-//synch actions 
+//synch actions creators
 
 export const updateSignupForm = (formData) => {
   return {

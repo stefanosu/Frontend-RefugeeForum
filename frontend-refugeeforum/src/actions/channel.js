@@ -14,13 +14,13 @@ export const getAllChannels = channels => {
     }
 }
 ///Should all the CRUD actions pertaining to
-// Subchannel be in the same action file??? maybe 2 actions per file?  
+// Channel be in the same action file??? maybe 2 actions per file?  
 
 
 //async action creators CRUD ACTIONS: 
-//create action to make post request to backend to persist subchannel to database.
+//create action to make post request to backend to persist Channel to database.
     export const makeChannel = (updateChannelData) => {
-        console.log('new channel created')
+        console.log('new channel created', updateChannelData)
         return dispatch => {
             return fetch('http://localhost:3000/api/v1/makeChannel',{
                 method: 'POST', 

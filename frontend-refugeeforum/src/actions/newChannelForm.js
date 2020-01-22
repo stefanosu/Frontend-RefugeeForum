@@ -1,8 +1,16 @@
 //sync action creators 
 
-export const updateNewChannelForm = (name, value) => {
+export const updateNewChannelForm = (channelData) => {
     return {
         type: 'UPDATE_NEW_CHANNEL_FORM', 
-        formData: {name, value}
+        channelData
+    }
+}
+
+
+export const clearChannelForm = () => {
+    return {
+        type: 'CLEAR_CHANNEL_FORM', 
+        
     }
 }

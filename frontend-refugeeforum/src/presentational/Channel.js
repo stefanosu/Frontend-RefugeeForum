@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import ChannelCards from './ChannelCards'
+import NewChannelForm from './NewChannelForm';
 
 
 
@@ -11,14 +12,18 @@ const Channel = ({sessions}) => {
       <ChannelCards channel={channel} key={channel.id}/>
       )
     }
-    // console.log(session);
+    const addNewChannel = (e) => {
+        console.log('adding channel', e);
+    }
   
   return (
-    <div className="channel-wrapper">
-      <h1>Channels</h1>
-
-      {channelData}
-  </div> 
+    <React.Fragment> 
+        <h1>Channels</h1>
+        <button onClick={addNewChannel}>Add New Channel:</button>
+      <div className="channel-wrapper">
+        {channelData} <NewChannelForm/>
+      </div> 
+    </React.Fragment>
   )
 }
 

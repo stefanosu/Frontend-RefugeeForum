@@ -1,33 +1,48 @@
 import React from 'react'
 import {updateNewChannelForm} from '../actions/newChannelForm'
 import {connect} from 'react-redux'
+import {makeChannel} from '../actions/channel.js'
 
-const NewChannelForm = () => {
+
+const NewChannelForm = ({channelFormData, updateNewChannelForm, makeChannel, history}) => {
     
-const handleChange = event => {
-  event.preventDefault()
+const handleChannelChange = event => {
   const {name, value} = event.target
-  updateNewChannelForm(name, value)
+  const updatedChannelInfo = {
+      ...channelFormData,
+      [name]: value 
+    }
+    updateNewChannelForm(updatedChannelInfo)
   }  
+
+  const handleChannelSubmit = e => {
+    e.preventDefault()
+    makeChannel(channelFormData, history)
+  }
 
 return ( 
   <div>
-    <form>
-    <input 
-      name='name'
-      onChange={handleChange}
-      value={null}
+    <form onSubmit={handleChannelSubmit}>
+    <input placeholder='title'
+      type='text'
+      name='title'
+      value={channelFormData.title}
+      onChange={handleChannelChange}
       />
+      <input type='submit' value='Create Channel'/>
     </form>
   </div> );
 }
 
-  // const mapStateToProps = state => {
-  //     state.newSubChannelForm
-  // }
+  const mapStateToProps = state => {
+    return {
+      channelFormData: state.newChannelForm
+    }
+  }
 
-  // const mapDispatchToProps = {
-  //     state: state.newSubChannelForm 
-  // }
+  const dispatchToProps = dispatch => {
+      
+    
+  }
 
-export default connect(NewChannelForm);
+export default connect(mapStateToProps, {updateNewChannelForm, makeChannel }) (NewChannelForm);
