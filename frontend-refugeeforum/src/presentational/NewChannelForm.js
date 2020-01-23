@@ -40,9 +40,5 @@ return (
     }
   }
 
-  // const dispatchToProps = dispatch => {
-      
-    
-  // }
 
 export default connect(mapStateToProps, {updateNewChannelForm, makeChannel }) (NewChannelForm);
