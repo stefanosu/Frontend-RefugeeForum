@@ -13,9 +13,6 @@ export const getAllChannels = channels => {
         channels 
     }
 }
-///Should all the CRUD actions pertaining to
-// Channel be in the same action file??? maybe 2 actions per file?  
-
 
 //async action creators CRUD ACTIONS: 
 //create action to make post request to backend to persist Channel to database.
