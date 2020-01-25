@@ -1,4 +1,4 @@
-//sync action creators 
+//sync action channels creators 
 
 export const updateNewChannelForm = (channelData) => {
     return {
