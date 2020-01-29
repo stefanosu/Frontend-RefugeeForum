@@ -12,7 +12,7 @@ const LogIn = ({loginFormData, updateLogInForm, login, history}) => {
             ...loginFormData, 
             [name]: value
         }
-        console.log(updateLogInForm(updatedFormInfo))
+        updateLogInForm(updatedFormInfo)
     } 
 
     const handleSubmit = event => {
@@ -23,7 +23,8 @@ const LogIn = ({loginFormData, updateLogInForm, login, history}) => {
 
 return ( 
     <form onSubmit={handleSubmit}> 
-    <input placeholder='username'  type='text' name='username' value={loginFormData.username} onChange={handleInputChange}/>
+    <input placeholder='username'  type='text' name='username'
+    value={loginFormData.username} onChange={handleInputChange}/>
         <input placeholder= 'password' type='password' name='password' value={loginFormData.password} onChange={handleInputChange}/>
         <input type='submit' value='Log In'/>
         </form>

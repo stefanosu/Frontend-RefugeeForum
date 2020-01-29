@@ -17,21 +17,23 @@ const handleChannelChange = event => {
 
   const handleChannelSubmit = e => {
     e.preventDefault()
+    debugger
     makeChannel(channelFormData, history)
   }
 
 return ( 
   <div>
     <form onSubmit={handleChannelSubmit}>
-    <input placeholder='title'
-      type='text'
-      name='title'
-      value={channelFormData.title}
-      onChange={handleChannelChange}
-      />
-      <input type='submit' value='Create Channel'/>
-    </form>
+      <input placeholder='title'
+          type='text'
+          name='title'
+          value={channelFormData.title}
+          onChange={handleChannelChange}/>
+        <input type='submit' value='Create Channel'/>
+      </form>
+        {console.log(channelFormData.title)}
   </div> );
+  
 }
 
   const mapStateToProps = state => {
@@ -40,7 +42,6 @@ return (
     }
   }
 
-  
 
 
 export default connect(mapStateToProps, {updateNewChannelForm, makeChannel }) (NewChannelForm);

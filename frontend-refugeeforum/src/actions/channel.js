@@ -14,17 +14,24 @@ export const getAllChannels = channels => {
     }
 }
 
+export const updateNewChannelForm = channelData => {
+    return {
+        type: 'UPDATE_NEW_CHANNEL_FORM', 
+        channelData 
+    }
+}
+
 //async action creators CRUD ACTIONS: 
 //create action to make post request to backend to persist Channel to database.
-    export const makeChannel = (channelFormData) => {
-        console.log('new channel created', channelFormData)
+    export const makeChannel = (channels, history) => {
+        console.log('new channel created', channels)
         return dispatch => {
             return fetch('http://localhost:3000/api/v1/makeChannel',{
                 method: 'POST', 
                 headers: {
                     'Content-Type': 'application/json'
                 }, 
-                body: JSON.stringify(channelFormData)
+                body: JSON.stringify(channels)
             })
             .then(resp => resp.json())
             .then(channels => {
@@ -32,7 +39,10 @@ export const getAllChannels = channels => {
                     console.log(channels.error, 'error')
                     alert(channels.error)
                 } else {
-                    dispatch(createUserChannel(channels.data))
+                    dispatch(updateNewChannelForm(channels))
+                    // console.log('about history push');
+                    // history.push('/')
+                    // console.log('history updated');                
                 }
             })
             .catch(console.log)

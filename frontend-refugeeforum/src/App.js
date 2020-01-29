@@ -36,7 +36,6 @@ class App extends React.Component {
       <Route exact path='/new/ChannelForm' component={NewChannelForm}/>
       </React.Fragment> 
       );
-      // <Route exact path='/' component={HomePage}/>
     }
 }
 
