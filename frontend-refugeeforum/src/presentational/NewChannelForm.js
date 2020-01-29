@@ -12,7 +12,7 @@ const handleChannelChange = event => {
       ...channelFormData,
       [name]: value 
     }
-    updateNewChannelForm(updatedChannelInfo)
+    console.log(updateNewChannelForm(updatedChannelInfo))
   }  
 
   const handleChannelSubmit = e => {
@@ -39,6 +39,8 @@ return (
       channelFormData: state.newChannelForm
     }
   }
+
+  
 
 
 export default connect(mapStateToProps, {updateNewChannelForm, makeChannel }) (NewChannelForm);

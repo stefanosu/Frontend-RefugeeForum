@@ -12,7 +12,7 @@ const LogIn = ({loginFormData, updateLogInForm, login, history}) => {
             ...loginFormData, 
             [name]: value
         }
-        updateLogInForm(updatedFormInfo)
+        console.log(updateLogInForm(updatedFormInfo))
     } 
 
     const handleSubmit = event => {

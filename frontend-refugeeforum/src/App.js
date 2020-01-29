@@ -12,10 +12,6 @@ import NewChannelForm from './presentational/NewChannelForm';
 
 
 class App extends React.Component {
-    
-  // state = {
-  //   isLogged: false
-  // }
 
   componentDidMount()  {
     if (localStorage.token) {
@@ -51,9 +47,9 @@ class App extends React.Component {
     
   
   const mapStateToProps = state => {
-    console.log('mapping state to props ' , state)
-    return {loggedIn: !!state.sessions.user}
-      
+    console.log('mapping state to props' , state)
+    return {loggedIn: !!state.sessions.user   
+        }
     }
   
   

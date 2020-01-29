@@ -23,13 +23,10 @@ export const login = (credentials, history) => {
     console.log('credentials are here', credentials);
     return dispatch => {
         // debugger
-        // const token = localStorage.token 
         return fetch("http://localhost:3000/api/v1/login", {
-            // credentials: "include", 
       method: 'POST', 
       headers: {
           'Content-Type': 'application/json',
-          // Authorization: `Bearer${token}`
         }, 
         body: JSON.stringify(credentials)
     })

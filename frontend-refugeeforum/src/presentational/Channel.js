@@ -4,7 +4,6 @@ import ChannelCards from './ChannelCards'
 import NewChannelForm from './NewChannelForm';
 
 
-
 const Channel = ({sessions}) => {
   let channelData; 
   if(sessions.user){
@@ -32,6 +31,11 @@ const Channel = ({sessions}) => {
       sessions
     }
   }
+
+  // const mapDispatchToProps = {
+  //   makeChannel
+  //   //dispatch create channel to store 
+  // }  
 
 
 export default connect(mapStateToProps) (Channel)
