@@ -1,5 +1,6 @@
 const initialState = {
-    name: ''
+    title: '',
+    user_id 
 }
 
 

@@ -10,3 +10,5 @@ export default (state = initialState, action) => {
         return state
     }    
 }
+
+// username, user_id, channels
