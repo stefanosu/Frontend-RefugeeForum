@@ -7,33 +7,39 @@ import {login} from '../actions/currentUser.js'
 const LogIn = ({loginFormData, updateLogInForm, login, history}) => {
 
     const handleInputChange = event => {
-        const {name, value} = event.target
-        const updatedFormInfo = {
-            ...loginFormData, 
-            [name]: value
-        }
+      const {name, value} = event.target
+      const updatedFormInfo = {
+        ...loginFormData, 
+        [name]: value
+      }
         updateLogInForm(updatedFormInfo)
     } 
 
     const handleSubmit = event => {
-        event.preventDefault()
-        // console.log(loginFormData, history)
-        login(loginFormData, history)
+      event.preventDefault()
+      login(loginFormData, history)
     }
 
 return ( 
-    <form onSubmit={handleSubmit}> 
-    <input placeholder='username'  type='text' name='username'
-    value={loginFormData.username} onChange={handleInputChange}/>
-        <input placeholder= 'password' type='password' name='password' value={loginFormData.password} onChange={handleInputChange}/>
-        <input type='submit' value='Log In'/>
-        </form>
+  <form onSubmit={handleSubmit}> 
+    <input placeholder='username'  
+      type='text' 
+      name='username'
+      value={loginFormData.username} 
+      onChange={handleInputChange}/>
+    <input placeholder= 'password' 
+      type='password' name='password' 
+      value={loginFormData.password} 
+      onChange={handleInputChange}/>
+    <input type='submit' value='Log In'/>
+      {console.log(loginFormData.username)}
+  </form>
         );
     }
     
     const mapStateToProps = state => {
         return {
-            loginFormData: state.loginForm
+          loginFormData: state.loginForm
         }
     }
     
