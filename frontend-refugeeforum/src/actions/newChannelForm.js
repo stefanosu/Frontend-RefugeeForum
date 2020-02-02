@@ -5,7 +5,6 @@ export const updateNewChannelForm = (channelData) => {
     }
 }
 
-
 export const clearChannelForm = () => {
     return {
         type: 'CLEAR_CHANNEL_FORM', 

@@ -17,7 +17,6 @@ const handleChannelChange = event => {
 
   const handleChannelSubmit = e => {
     e.preventDefault()
-    // debugger
     makeChannel(channelFormData, user_id)
   }
 
