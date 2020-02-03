@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import {makeChannel} from '../actions/channel.js'
 
 
-const NewChannelForm = ({channelFormData, updateNewChannelForm, makeChannel, user_id}) => {
+const NewChannelForm = ({channelFormData, updateNewChannelForm, makeChannel}) => {
     
 const handleChannelChange = event => {
   const {name, value} = event.target
@@ -17,7 +17,7 @@ const handleChannelChange = event => {
 
   const handleChannelSubmit = e => {
     e.preventDefault()
-    makeChannel(channelFormData, user_id)
+    makeChannel(channelFormData)
   }
 
 return ( 

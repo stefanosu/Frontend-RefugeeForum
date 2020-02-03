@@ -5,23 +5,26 @@ import NewChannelForm from './NewChannelForm';
 
 
 const Channel = ({sessions}) => {
-  let channelData; 
-  if(sessions.user){
-    channelData = sessions.user.channels.map(channel => 
-      <ChannelCards channel={channel} key={channel.id}/>
-      )
+  const renderChannelCards = () => { 
+    if(sessions.user){
+      return sessions.user.channels.map(channel => { 
+      return <ChannelCards channel={channel} key={channel.id}/>
+      }) 
     }
-    const addNewChannel = (e) => {
-        console.log('adding channel', e);
-    }
+  }
+  
+  const addNewChannel = (e) => {
+      console.log('adding channel', e);
+  }
   
   return (
     <React.Fragment> 
-        <h1>Channels</h1>
-        <button onClick={addNewChannel}>Add New Channel:</button>
-      <div className="channel-wrapper">
-        {channelData} <NewChannelForm/>
-      </div> 
+    <div className="channel-wrapper">
+      <h1>Channels</h1>
+      <button onClick={addNewChannel}>Add New Channel:</button>
+      {renderChannelCards(sessions.user)}
+      <NewChannelForm/>
+    </div> 
     </React.Fragment>
   )
 }

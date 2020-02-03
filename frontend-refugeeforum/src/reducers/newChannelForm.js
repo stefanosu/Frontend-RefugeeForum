@@ -1,6 +1,6 @@
 const initialState = {
     title: '',
-    user_id 
+    // user_id 
 }
 
 

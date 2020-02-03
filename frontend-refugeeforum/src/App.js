@@ -28,12 +28,12 @@ class App extends React.Component {
     
     return ( 
       <React.Fragment>
-      {localStorage.token ? <Logout/> : null}
-      <Route exact path='/login' component={LogIn}/>
-      <Route exact path='/' render={()=> loggedIn ? <Channel/> : <HomePage/>}/>
-      <Route exact path='/signup' component={SignUp}/>
-      <Route exact path='/channel' component={Channel}/>
-      <Route exact path='/new/ChannelForm' component={NewChannelForm}/>
+        {localStorage.token ? <Logout/> : null}
+        <Route exact path='/login' component={LogIn}/>
+        <Route exact path='/' render={()=> loggedIn ? <Channel/> : <HomePage/>}/>
+        <Route exact path='/signup' component={SignUp}/>
+        <Route exact path='/channel' component={Channel}/>
+        <Route exact path='/new/ChannelForm' component={NewChannelForm}/>
       </React.Fragment> 
       );
     }

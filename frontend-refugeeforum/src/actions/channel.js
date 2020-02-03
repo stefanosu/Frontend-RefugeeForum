@@ -23,7 +23,7 @@ export const updateNewChannelForm = channelData => {
 
 //async action creators CRUD ACTIONS: 
 //create action to make post request to backend to persist Channel to database.
-    export const makeChannel = (channels,user_id) => {
+    export const makeChannel = (channels) => {
         console.log('new channel created', channels)
         return dispatch => {
             // debugger
@@ -32,7 +32,7 @@ export const updateNewChannelForm = channelData => {
                 headers: {
                     'Content-Type': 'application/json'
                 }, 
-                body: JSON.stringify(channels,user_id)
+                body: JSON.stringify(channels)
             })
             .then(resp => resp.json())
             .then(channels => {
