@@ -6,7 +6,6 @@ export const checkUserLoggedIn = () => {
     }
 } 
 
-
 export const checkUserLoggedOut = () => {
     return {
         type: 'CHECK_USER_LOGGED_OUT',
