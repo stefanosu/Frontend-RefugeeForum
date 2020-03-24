@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import ChannelCards from './ChannelCards'
 import NewChannelForm from './NewChannelForm';
 
-
 const Channel = ({sessions}) => {
   const renderChannelCards = () => { 
     if(sessions.user){
