@@ -12,7 +12,7 @@ export const setCurrentUser = user => {
 } 
 
 export const clearCurrentUser = () => {
-  return {
+    return {
     type: 'CLEAR_CURRENT_USER'
   }
 }
@@ -24,9 +24,9 @@ export const login = (credentials, history) => {
     return dispatch => {
         // debugger
         return fetch("http://localhost:3000/api/v1/login", {
-      method: 'POST', 
-      headers: {
-          'Content-Type': 'application/json',
+        method: 'POST', 
+        headers: {
+        'Content-Type': 'application/json',
         }, 
         body: JSON.stringify(credentials)
     })
@@ -44,10 +44,10 @@ export const login = (credentials, history) => {
             console.log('about history push');
             history.push('/')
             console.log('history updated');
-          }
-      })
-      .catch(console.log)
-  }
+            }
+        })
+        .catch(console.log)
+    }
 }
 
 //create new user
@@ -109,8 +109,8 @@ export const getCurrentUser = () => {
             if(user.error) {
                 alert(user.error)
             } else {
-              dispatch(setCurrentUser(user))
-              console.log(user)
+                dispatch(setCurrentUser(user))
+                console.log(user)
                 // localStorage.setItem("token", user.token)
                 // dispatch(getAllChannels(user.data))
             }

@@ -30,7 +30,8 @@ export const updateNewChannelForm = channelData => {
             return fetch('http://localhost:3000/api/v1/makeChannel',{
                 method: 'POST', 
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer` + localStorage.token
                 }, 
                 body: JSON.stringify(channels)
             })
